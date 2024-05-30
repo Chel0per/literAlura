@@ -2,26 +2,14 @@ package marcelo.alura.literalura.models;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 
-public class Author {
-
-    public final String name;
-    @JsonAlias("birth_year")
-    public final int birthYear;
-    @JsonAlias("death_year")
-    public final int deathYear;
-
-    public Author(int birthYear, String name, int deathYear) {
-        this.birthYear = birthYear;
-        this.name = name;
-        this.deathYear = deathYear;
-    }
+public record Author(String name,@JsonAlias("birth_year") int birthYear,@JsonAlias("death_year") int deathYear) {
 
     @Override
     public String toString() {
-        return "Author{" +
-                "birthYear=" + birthYear +
-                ", name='" + name + '\'' +
-                ", deathYear=" + deathYear +
+        return "Autor{" +
+                "Nome='" + name +
+                ", Ano de nascimento=" + birthYear +
+                ", Ano de falecimento=" + deathYear +
                 '}';
     }
 }
